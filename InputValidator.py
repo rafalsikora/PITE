@@ -34,7 +34,7 @@ class InputValidator:
                     negatives.append(t)
             self.extractparameters(positives, 1)
             self.extractparameters(negatives, -1)
-        self.opts = [float(x) for x in self.inputdata[1]]
+            self.opts = [float(x) for x in self.inputdata[1]]
 
     def extractparameters(self, parliststr, sign):
         for i in parliststr:
@@ -86,7 +86,7 @@ class InputValidator:
                         errorsfound.append(2)
                         allnumbers = False
                         break
-                if allnumbers:  # check for valid step size, only possible if provided options are numbers
+                if allnumbers and len(self.inputdata[1]) == 3:  # check for valid step size, only possible if provided options are numbers
                     if abs(float(self.inputdata[1][0])-float(self.inputdata[1][1])) < abs(float(self.inputdata[1][2])):
                         errorsfound.append(5)
         if len(errorsfound) == 0:  # no errors
